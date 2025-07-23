@@ -24,7 +24,7 @@ namespace AfterShipTracking
                throw ErrorCode.GenSDKError(ErrorCode.REQUEST_ERROR,"request error"+": `id` is invalid");
             }
             Request request = new Request(
-                HttpMethod.Patch,
+                new HttpMethod("PATCH"),
                 path,
                 options
             );

@@ -38,22 +38,22 @@ namespace AfterShipTracking
             }
         }
 
-        public static string RsaPssSha256Encrypt(string data, string privateKeyPem)
-        {
-            byte[] dataBytes = Encoding.UTF8.GetBytes(data);
+        //public static string RsaPssSha256Encrypt(string data, string privateKeyPem)
+        //{
+        //    byte[] dataBytes = Encoding.UTF8.GetBytes(data);
 
-            using (var rsa = RSA.Create())
-            {
-                rsa.ImportFromPem(privateKeyPem);
+        //    using (var rsa = RSA.Create())
+        //    {
+        //        rsa.ImportFromPem(privateKeyPem);
 
-                // sign data with SHA256
-                byte[] signature = rsa.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pss);
+        //        // sign data with SHA256
+        //        byte[] signature = rsa.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pss);
 
-                // convert to Base64 string
-                string base64Signature = Convert.ToBase64String(signature);
+        //        // convert to Base64 string
+        //        string base64Signature = Convert.ToBase64String(signature);
 
-                return base64Signature;
-            }
-        }
+        //        return base64Signature;
+        //    }
+        //}
     }
 }

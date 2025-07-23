@@ -114,7 +114,10 @@ namespace AfterShipTracking
         {
             if (string.IsNullOrEmpty(message))
             {
-                message = errorMessageMap.GetValueOrDefault(errorCode) ?? "Unknown error";
+                if (!errorMessageMap.TryGetValue(errorCode, out message))
+                {
+                    message = "Unknown error";
+                }
             }
             return new AfterShipError(message, errorCode, statusCode, metaCode, responseBody, responseHeader);
         }

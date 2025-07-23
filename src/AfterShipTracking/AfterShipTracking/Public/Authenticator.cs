@@ -82,20 +82,20 @@ namespace AfterShipTracking
                     string aesSign = Encryption.HmacSha256Encrypt(s, this.ApiSecret);
                     tmpHeaders.TryAddWithoutValidation("as-signature-hmac-sha256", aesSign);
                 }
-                else if (this.AuthenticationType == AUTH_TYPE_RSA)
-                {
-                    string rsaSign;
-                    try
-                    {
-                        rsaSign = Encryption.RsaPssSha256Encrypt(s, this.ApiSecret);
-                    }
-                    catch (Exception e)
-                    {
-                        throw ErrorCode.GenSDKError(ErrorCode.INVALID_API_KEY, e.Message);
-                    }
+                //else if (this.AuthenticationType == AUTH_TYPE_RSA)
+                //{
+                //    string rsaSign;
+                //    try
+                //    {
+                //        rsaSign = Encryption.RsaPssSha256Encrypt(s, this.ApiSecret);
+                //    }
+                //    catch (Exception e)
+                //    {
+                //        throw ErrorCode.GenSDKError(ErrorCode.INVALID_API_KEY, e.Message);
+                //    }
 
-                    tmpHeaders.TryAddWithoutValidation("as-signature-rsa-sha256", rsaSign);
-                }
+                //    tmpHeaders.TryAddWithoutValidation("as-signature-rsa-sha256", rsaSign);
+                //}
             }
         }
 
